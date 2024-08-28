@@ -1,0 +1,30 @@
+.navbar{
+    // background-color: rgba(0, 111, 0, 0.772);
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        align-items: center;
+        .logo{
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .links{
+            ul{
+                display: flex;
+                gap: 45px;
+                li:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .auth_btns{
+            button{
+                background-color: #000000e9;
+                color:#898989;
+                padding: 10px 25px;
+                border-radius: 18px;
+            }
+        }
+    }
+}

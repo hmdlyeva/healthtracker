@@ -1,0 +1,51 @@
+.herosec {
+  .hero_section {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    .hero_text {
+      width: 50%;
+      h1 {
+        font-size: 70px;
+        font-weight: 700;
+        width: 500px;
+        line-height: 70px;
+      }
+      p {
+        color: gray;
+        width: 500px;
+        padding: 20px 0;
+      }
+      .join_us {
+        display: flex;
+        align-items: center;
+        button {
+          background-color: #000000e9;
+          color: #898989;
+          padding: 8px 30px;
+          border-radius: 18px;
+        }
+        .arrow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #8efb4a;
+          padding: 10px;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          margin-left: -10px;
+        }
+      }
+    }
+    .hero_img {
+      background-image: url("/images/heroimg.png");
+      width: 500px;
+      height: 600px;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-position: top;
+      
+    }
+  }
+}

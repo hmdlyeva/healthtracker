@@ -1,0 +1,21 @@
+.goalsec {
+  .goal_section {
+    background-color: #000000e9;
+    padding: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    .goal {
+      h1 {
+        color: #fff;
+        font-weight: 600;
+        font-size: 40px;
+      }
+      p {
+        color: gray;
+      }
+    }
+  }
+}
