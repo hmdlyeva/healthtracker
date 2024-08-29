@@ -9,7 +9,7 @@ export const getActivities = createAsyncThunk("users/getActivities", async () =>
   return response.data;
 });
 
-export const deleteActivities = createAsyncThunk("users/deleteActivities", async (id: string) => {
+export const deleteActivities = createAsyncThunk("users/deleteActivities", async (id: String) => {
   const response = await axios.delete(`${userUrl}/${id}`);
   return response.data;
 });
@@ -23,23 +23,24 @@ export const postActivities = createAsyncThunk(
 );
 export const updateActivities = createAsyncThunk(
   "users/updateActivities",
-  async ({ id, newp }: { id: number; newp: Partial<Activity> }) => {
+  async ({ id, newp }: { id: String; newp: Partial<Activity> }) => {
     const response = await axios.put(`${userUrl}/${id}`, newp);
     return response.data;
   }
 );
 
+export interface UserActivity {
+  _id?: String;
+  daily_water: Number;
+  daily_sleep: Number;
+  daily_exercise: Number;
+  day: Number;
+}
+
 export interface Activity {
   _id:String
   userid: String;
-  user_activity:[
-    {
-        daily_water:Number,
-        daily_sleep:Number,
-        daily_exercise:Number,
-        day:Number
-    }
-  ]
+  user_activity: UserActivity[];
 }
 
 export interface ActivityState {
@@ -52,14 +53,7 @@ const initialState: ActivityState = {
     activity: {
     _id:'0',
     userid: "",
-    user_activity:[
-        {
-            daily_water:0,
-            daily_sleep:0,
-            daily_exercise:0,
-            day:0 
-        }
-    ]
+    user_activity:[]
   },
   activities: [],
   loading: false,

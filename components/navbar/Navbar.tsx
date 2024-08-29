@@ -13,6 +13,8 @@ import {
 import Profileicon from "../ui/Profileicon";
 import Logout from "../ui/Logout";
 import { setTimeout } from "timers/promises";
+import { useRouter } from "next/navigation";
+
 type Props = {
   featureRef?: React.RefObject<HTMLDivElement>;
   serviceRef?: React.RefObject<HTMLDivElement>;
@@ -24,6 +26,7 @@ const Navbar = ({ featureRef, serviceRef, planRef }: Props) => {
   const loggedUserid = useSelector(
     (state: RootState) => state.users.loggedUserId
   );
+  const router = useRouter();
 
   useEffect(() => {
     dispatch(getUsers());
@@ -79,6 +82,7 @@ const Navbar = ({ featureRef, serviceRef, planRef }: Props) => {
         newp: { ...userim, islogin: false },
       })
     );
+    router.push("/");
   };
 
   return (
