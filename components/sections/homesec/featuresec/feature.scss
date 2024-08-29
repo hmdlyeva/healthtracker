@@ -1,0 +1,100 @@
+.featuresec {
+  .feature_section {
+    padding: 100px 0;
+    .text_side {
+      display: flex;
+      justify-content: space-between;
+      padding: 50px 0;
+      h1 {
+        font-size: 55px;
+        font-weight: 700;
+        width: 500px;
+        line-height: 60px;
+        margin-top: -5px;
+      }
+      .ui_side {
+        width: 50%;
+        position: relative;
+        p {
+          color: gray;
+        }
+        .btns {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          position: absolute;
+          right: 0;
+          button {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+              border: none;
+              background-color: #8efb4a;
+            }
+            border: 1px solid;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .offer_cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      .card {
+        // min-width: 300px;
+        background-color: #000000e9;
+        padding: 30px;
+        border-radius: 20px;
+        position: relative;
+        .icon {
+          position: absolute;
+          right: 0;
+          margin-right: 30px;
+          margin-top: 10px;
+        }
+        h1 {
+          font-size: 30px;
+          font-weight: 600;
+          color: #fff;
+          margin: 50px 0 20px 0;
+        }
+        p {
+          color: gray;
+        }
+        .discover_more_btn {
+          display: none;
+          background-color: #8efb4a;
+          position: absolute;
+          bottom: 0;
+          margin-bottom: -20px;
+          left: calc(50% - 80px);
+          border-radius: 20px;
+          padding: 15px 25px;
+        }
+      }
+      .card:hover {
+        cursor: pointer;
+        h1 {
+          color: #8efb4a;
+        }
+        .discover_more_btn {
+         
+          display: block;
+        }
+      }
+    }
+  }
+}

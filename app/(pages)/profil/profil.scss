@@ -1,0 +1,74 @@
+.profile {
+  .profile_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .hero_text {
+      h1 {
+        font-size: 70px;
+        font-weight: 700;
+        width: 500px;
+        line-height: 70px;
+      }
+      p {
+        color: gray;
+        width: 500px;
+        padding: 20px 0;
+      }
+    }
+    .hero_img {
+      background-image: url("/images/heroimg.png");
+      width: 450px;
+      height: 600px;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-position: top;
+    }
+    .update-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  .container {
+    padding-bottom: 100px;
+    .goalsec {
+      .goal_section {
+        background-color: #000000e9;
+        padding: 50px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        .goal-input {
+          width: 100px;
+          padding: 5px;
+          border-radius: 4px;
+          outline: none;
+          background-color: inherit;
+          all: none;
+          color: white;
+          font-size: 40px;
+        }
+        .goal-input:focus {
+          outline: none;
+        }
+        .goal {
+          h1 {
+            color: #fff;
+            font-weight: 600;
+            font-size: 40px;
+          }
+          p {
+            color: gray;
+          }
+        }
+      }
+    }
+  }
+}

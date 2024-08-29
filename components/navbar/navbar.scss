@@ -1,30 +1,59 @@
-.navbar{
-    // background-color: rgba(0, 111, 0, 0.772);
-    .nav{
+.navbar {
+  // background-color: rgba(0, 111, 0, 0.772);
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    align-items: center;
+    position: relative;
+    .logo {
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .links {
+      ul {
+        display: flex;
+        gap: 45px;
+        li:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .login_user {
+      font-size: 20px;
+      font-weight: 700;
+      color: #898989;
+      border: 1px solid #8efb4ad3;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .auth_btns {
+      .btn {
+        background-color: #000000e9;
+        color: #898989;
+        padding: 10px 25px;
+        border-radius: 18px;
+      }
+    }
+  }
+  .nav_modal {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    ul {
+      .li {
+        cursor: pointer;
+        padding: 5px 0;
         display: flex;
         justify-content: space-between;
-        padding: 20px 0;
         align-items: center;
-        .logo{
-            font-size: 25px;
-            font-weight: 600;
-        }
-        .links{
-            ul{
-                display: flex;
-                gap: 45px;
-                li:hover{
-                    cursor: pointer;
-                }
-            }
-        }
-        .auth_btns{
-            button{
-                background-color: #000000e9;
-                color:#898989;
-                padding: 10px 25px;
-                border-radius: 18px;
-            }
-        }
+      }
     }
+  }
 }

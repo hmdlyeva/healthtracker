@@ -22,25 +22,25 @@
         button {
           background-color: #000000e9;
           color: #898989;
-          padding: 8px 30px;
-          border-radius: 18px;
+          padding: 15px 37px;
+          border-radius: 25px;
         }
         .arrow {
           display: flex;
           justify-content: center;
           align-items: center;
           background-color: #8efb4a;
-          padding: 10px;
-          width: 35px;
-          height: 35px;
+          // padding: 5px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
-          margin-left: -10px;
+          margin-left: -15px;
         }
       }
     }
     .hero_img {
       background-image: url("/images/heroimg.png");
-      width: 500px;
+      width: 450px;
       height: 600px;
       background-repeat: no-repeat;
       object-fit: contain;

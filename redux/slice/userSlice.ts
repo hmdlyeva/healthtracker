@@ -9,10 +9,13 @@ export const getUsers = createAsyncThunk("users/getUser", async () => {
   return response.data;
 });
 
-export const deleteUsers = createAsyncThunk("users/deleteUser", async (id: string) => {
-  const response = await axios.delete(`${userUrl}/${id}`);
-  return response.data;
-});
+export const deleteUsers = createAsyncThunk(
+  "users/deleteUser",
+  async (id: String) => {
+    const response = await axios.delete(`${userUrl}/${id}`);
+    return response.data;
+  }
+);
 
 export const postUsers = createAsyncThunk(
   "users/postUser",
@@ -23,14 +26,14 @@ export const postUsers = createAsyncThunk(
 );
 export const updateUsers = createAsyncThunk(
   "users/updateUser",
-  async ({ id, newp }: { id: number; newp: Partial<User> }) => {
+  async ({ id, newp }: { id: String; newp: Partial<User> }) => {
     const response = await axios.put(`${userUrl}/${id}`, newp);
     return response.data;
   }
 );
 
 export interface User {
-  _id:String
+  _id: String;
   username: String;
   weight: Number;
   height: Number;
@@ -45,12 +48,13 @@ export interface User {
 export interface UserState {
   user: User;
   users: User[];
-  loading: boolean;
+  loggedUserId: String;
+  loading: Boolean;
 }
 
 const initialState: UserState = {
   user: {
-    _id:'0',
+    _id: "0",
     username: "",
     weight: 0,
     height: 0,
@@ -62,6 +66,7 @@ const initialState: UserState = {
     islogin: false,
   },
   users: [],
+  loggedUserId: "",
   loading: false,
 };
 
@@ -69,9 +74,12 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload
-    // },
+    saveLogedUserid: (state, action: PayloadAction<String>) => {
+      state.loggedUserId = action.payload;
+    },
+    deleteLogedUserid: (state) => {
+      state.loggedUserId = "";
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -105,9 +113,7 @@ export const userSlice = createSlice({
       .addCase(
         deleteUsers.fulfilled,
         (state, action: PayloadAction<{ id: string }>) => {
-          state.users = state.users.filter(
-            (v) => v._id !== action.payload.id
-          );
+          state.users = state.users.filter((v) => v._id !== action.payload.id);
           state.loading = false;
         }
       )
@@ -129,6 +135,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+export const { saveLogedUserid, deleteLogedUserid } = userSlice.actions;
 
 export default userSlice.reducer;
