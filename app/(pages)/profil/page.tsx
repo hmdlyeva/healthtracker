@@ -15,6 +15,8 @@ import {
   UserActivity,
   Activity,
 } from "@/redux/slice/activitySlice";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 type Props = {};
 
 const Profil = (props: Props) => {
@@ -84,7 +86,7 @@ const Profil = (props: Props) => {
     }
   };
 
-  const logedUserActivities:Activity | undefined = UpdatedUserActivity.find(
+  const logedUserActivities: Activity | undefined = UpdatedUserActivity.find(
     (user) => user.userid === userim!._id
   );
 
@@ -95,7 +97,7 @@ const Profil = (props: Props) => {
     if (logedUserActivities) {
       setLogedUserActivity(logedUserActivities.user_activity);
     } else {
-      setLogedUserActivity([]); 
+      setLogedUserActivity([]);
     }
   }, [logedUserActivities]);
 
@@ -152,6 +154,30 @@ const Profil = (props: Props) => {
       }
     },
   });
+
+  const chartData = logedUserActivities?.user_activity.map(item => {
+    return {
+      water:item.daily_water,
+      sleep:item.daily_sleep,
+      exercise:item.daily_exercise,
+      day:item.day
+    }    
+  })
+
+  const chartConfig = {
+    water: {
+      label: "Water",
+      color: "#60a5fa",
+    },
+    sleep: {
+      label: "Sleep",
+      color: "#8efb4a",
+    },
+    exercise: {
+      label: "Exercise",
+      color: "#000000e9",
+    },
+  } satisfies ChartConfig;
 
   return (
     <div className="profile">
@@ -273,6 +299,28 @@ const Profil = (props: Props) => {
                   </form>
                 </div>
               </div>
+
+              <ChartContainer
+                config={chartConfig}
+                className="min-h-[200px] w-full"
+              >
+                <BarChart accessibilityLayer data={chartData}>
+                  <CartesianGrid vertical={false} />
+                  <XAxis
+                    dataKey="day"
+                    tickLine={false}
+                    tickMargin={10}
+                    axisLine={false}
+                  />
+                  <Bar dataKey="water" fill="var(--color-water)" radius={4} />
+                  <Bar dataKey="sleep" fill="var(--color-sleep)" radius={4} />
+                  <Bar
+                    dataKey="exercise"
+                    fill="var(--color-exercise)"
+                    radius={4}
+                  />
+                </BarChart>
+              </ChartContainer>
 
               <div className="offer_cards">
                 {logedUserActivities &&
