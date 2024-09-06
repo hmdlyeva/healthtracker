@@ -22,6 +22,7 @@
       display: flex;
       justify-content: space-between;
       gap: 50px;
+      
       .card {
         background-color: #f0f0f0;
         border-radius: 20px;
@@ -43,6 +44,7 @@
         .details {
           text-align: end;
           padding: 30px 25px;
+          // min-height: 280px;
           h1 {
             font-size: 30px;
             font-weight: 700;
@@ -58,6 +60,7 @@
           background-color: #000000e9;
           position: relative;
           padding: 25px;
+
           h1 {
             font-size: 30px;
             font-weight: 600;

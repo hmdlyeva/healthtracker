@@ -2,9 +2,21 @@ import React from "react";
 import "./herosec.scss";
 import Image from "next/image";
 import RightArrow from "@/components/ui/RightArrow";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 type Props = {};
 
 const HeroSec = (props: Props) => {
+  useGSAP(() => {
+    gsap.from(".hero_text h1,.hero_text p, .join_us", {
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      delay: 1,
+      stagger: 0.3,
+    });
+  });
+
   return (
     <section className="herosec">
       <div className="container">

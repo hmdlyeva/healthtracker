@@ -1,6 +1,8 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import "./servicesec.scss";
 import RightArrow from "@/components/ui/RightArrow";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 type Props = {};
 const serviceCards = [
   {
@@ -20,6 +22,60 @@ const serviceCards = [
   },
 ];
 const ServiceSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  useEffect(() => {
+    gsap.fromTo(
+      ".service_section .text_side h1",
+      {
+        scrollTrigger: {
+          trigger: ".text_side h1",
+          start: "bottom 150%", 
+          end: "top bottom", 
+          scrub: true, 
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.1,
+      },
+      {
+        scrollTrigger: {
+          trigger: ".servicesec",
+          start: "top 150%", 
+          end: "bottom top",
+          scrub: true, 
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.1,
+        delay: 1
+      }
+    );
+    gsap.fromTo(
+      ".service_section .text_side p",
+      {
+        scrollTrigger: {
+          trigger: ".text_side p",
+          start: "bottom 150%", 
+          end: "top bottom", 
+          scrub: true, 
+        },
+        x: 50,
+        opacity: 0,
+        duration: 0.1,
+      },
+      {
+        scrollTrigger: {
+          trigger: ".servicesec",
+          start: "top 150%", 
+          end: "bottom top",
+          scrub: true, 
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.1,
+      }
+    );
+   
+  }, []);
   return (
     <section className="servicesec" ref={ref}>
       <div className="container">

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -50px;
     .hero_text {
       h1 {
         font-size: 70px;
@@ -19,13 +20,14 @@
     .hero_img {
       background-image: url("/images/heroimg.png");
       width: 450px;
-      height: 600px;
+      height: 550px;
       background-repeat: no-repeat;
       object-fit: contain;
       background-position: top;
     }
     .update-button {
       margin-top: 20px;
+      margin-left: 5px;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -35,7 +37,7 @@
     }
   }
   .container {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     .goalsec {
       .goal_section {
         background-color: #000000e9;
@@ -93,7 +95,7 @@
         .offer_cards,
         .add_card {
           display: flex;
-          // justify-content: space-between;
+          justify-content: space-between;
           flex-wrap: wrap;
           gap: 50px;
           margin: 20px 0;

@@ -14,6 +14,8 @@ import Profileicon from "../ui/Profileicon";
 import Logout from "../ui/Logout";
 import { setTimeout } from "timers/promises";
 import { useRouter } from "next/navigation";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 type Props = {
   featureRef?: React.RefObject<HTMLDivElement>;
@@ -84,6 +86,16 @@ const Navbar = ({ featureRef, serviceRef, planRef }: Props) => {
     );
     router.push("/");
   };
+
+  useGSAP(() => {
+    gsap.from(".links li,.logo, .auth_btns, .login_user", {
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      delay: 1,
+      stagger: 0.3,
+    });
+  });
 
   return (
     <div className="navbar">

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./goalsec.scss";
 import { User } from "@/redux/slice/userSlice";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+gsap.registerPlugin(TextPlugin);
 type Props = {};
 
 const GoalSec = (props: Props) => {
@@ -53,14 +57,38 @@ const GoalSec = (props: Props) => {
       ]
     : defaultGoalArr;
 
+    const goalRefs = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+      goalRefs.current.forEach((goalRef:any, index:any) => {
+        const goalValue = goalArr[index].goal as number;
+  
+        gsap.to(goalRef.querySelector("h1"), {
+          text: {
+            value: goalValue.toString(),
+          },
+          duration: 2,
+          ease: "sine.out",
+        });
+      });
+    }, [goalArr]);
+
   return (
     <section className="goalsec">
       <div className="container">
         <div className="goal_section">
           {goalArr &&
             goalArr.map((goal: { goal: Number; desc: String }, i) => (
-              <div className="goal" key={i}>
-                <h1>{goal.goal as number}</h1>
+              <div
+              className="goal"
+              key={i}
+              ref={(el) => {
+                if (el) {
+                  goalRefs.current[i] = el;
+                }
+              }}
+            >
+                <h1>0</h1> 
                 <p>{goal.desc}</p>
               </div>
             ))}

@@ -41,9 +41,9 @@
     .hero_img {
       background-image: url("/images/heroimg.png");
       width: 450px;
-      height: 600px;
-      background-repeat: no-repeat;
-      object-fit: contain;
+      height: 550px;
+      // background-repeat: no-repeat;
+      object-fit: cover;
       background-position: top;
       
     }
