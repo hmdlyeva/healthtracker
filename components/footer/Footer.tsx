@@ -29,7 +29,7 @@ const links = [
   },
 ];
 
-const social_links = [<Github />, <Linkedin />, <Stackoverflow />];
+const social_links = [<Github key="github"/>, <Linkedin key="linkedin"/>, <Stackoverflow key="stackoverflow"/>];
 
 const Footer = (props: Props) => {
   return (
@@ -40,7 +40,7 @@ const Footer = (props: Props) => {
           <div className="logo_side">
             <h1>Health Tracker</h1>
             <p>
-              We're dedicated to helping you achieve your health goals,
+              We&apos;re dedicated to helping you achieve your health goals,
               providing you with the tools, support
             </p>
           </div>

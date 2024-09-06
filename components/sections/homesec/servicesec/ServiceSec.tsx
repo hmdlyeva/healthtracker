@@ -85,7 +85,7 @@ const ServiceSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
             <p>
               Our app presents a comprehensive catalog of services that cater to
               a wide range of needs, all accessible at your fingertips. With our
-              app, you're not just downloading a piece of software;you're
+              app, you&apos;re not just downloading a piece of software;you&apos;re
               unlocking a world of convenience and possibilities.
             </p>
           </div>
@@ -112,5 +112,5 @@ const ServiceSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
     </section>
 );
 });
-
+ServiceSec.displayName = "ServiceSec";
 export default ServiceSec;

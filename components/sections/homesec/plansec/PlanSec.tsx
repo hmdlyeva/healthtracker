@@ -116,5 +116,5 @@ const PlanSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
     </section>
   );
 });
-
+PlanSec.displayName = "PlanSec";
 export default PlanSec;

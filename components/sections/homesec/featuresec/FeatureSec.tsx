@@ -114,7 +114,7 @@ const FeatureSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
             <h1>Best features We Offer for You</h1>
             <div className="ui_side">
               <p>
-                We're dedicated to helping you achieve your health goals,
+                We&apos;re dedicated to helping you achieve your health goals,
                 providing you with the tools, support, and resources.
               </p>
               <div className="btns">
@@ -146,5 +146,5 @@ const FeatureSec = forwardRef<HTMLDivElement, Props>((props, ref) => {
     </section>
   );
 });
-
+FeatureSec.displayName = "FeatureSec";
 export default FeatureSec;
