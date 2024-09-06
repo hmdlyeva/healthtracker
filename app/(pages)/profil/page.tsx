@@ -16,7 +16,7 @@ import {
   Activity,
 } from "@/redux/slice/activitySlice";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 type Props = {};
 
 const Profil = (props: Props) => {
@@ -24,6 +24,7 @@ const Profil = (props: Props) => {
   const activities = useSelector(
     (state: RootState) => state.activities.activities
   );
+  const users = useSelector((state: RootState) => state.users.users);
   useEffect(() => {
     dispatch(getActivities());
   }, [dispatch]);
@@ -33,11 +34,12 @@ const Profil = (props: Props) => {
     setUpdatedUserActivity(activities);
   }, [activities]);
 
-  const storedUser = localStorage.getItem("logeduser");
+  // const storedUser = localStorage.getItem("logeduser");
+  const storedUser = users.find((user) => user.islogin == true);
   let userim: User | null = null;
   if (storedUser) {
     try {
-      userim = JSON.parse(storedUser) as User;
+      userim = storedUser as User;
     } catch (error) {
       console.error("Error parsing JSON from localStorage:", error);
     }
@@ -155,14 +157,14 @@ const Profil = (props: Props) => {
     },
   });
 
-  const chartData = logedUserActivities?.user_activity.map(item => {
+  const chartData = logedUserActivities?.user_activity.map((item) => {
     return {
-      water:item.daily_water,
-      sleep:item.daily_sleep,
-      exercise:item.daily_exercise,
-      day:item.day
-    }    
-  })
+      water: item.daily_water,
+      sleep: item.daily_sleep,
+      exercise: item.daily_exercise,
+      day: item.day,
+    };
+  });
 
   const chartConfig = {
     water: {

@@ -36,11 +36,12 @@ const Navbar = ({ featureRef, serviceRef, planRef }: Props) => {
 
   const findLogedUser = Users.find((user) => user._id === loggedUserid);
   console.log(findLogedUser);
-  const storedUser = localStorage.getItem("logeduser");
+  // const storedUser = localStorage.getItem("logeduser");
+  const storedUser = Users.find((user) => user.islogin == true);
   let userim: User | null = null;
   if (storedUser) {
     try {
-      userim = JSON.parse(storedUser) as User;
+      userim = storedUser as User;
     } catch (error) {
       console.error("Error parsing JSON from localStorage:", error);
     }

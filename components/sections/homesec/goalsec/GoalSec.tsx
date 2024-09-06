@@ -4,15 +4,20 @@ import { User } from "@/redux/slice/userSlice";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store/store";
 gsap.registerPlugin(TextPlugin);
 type Props = {};
 
 const GoalSec = (props: Props) => {
-  const storedUser = localStorage.getItem("logeduser");
+  // const storedUser = localStorage.getItem("logeduser");
+  const users = useSelector((state: RootState) => state.users.users);
+  const storedUser = users.find((user) => user.islogin == true);
+
   let userim: User | null = null;
   if (storedUser) {
     try {
-      userim = JSON.parse(storedUser) as User;
+      userim = storedUser as User;
     } catch (error) {
       console.error("Error parsing JSON from localStorage:", error);
     }

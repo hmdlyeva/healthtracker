@@ -54,7 +54,7 @@ const Login = () => {
           })
         );
         dispatch(saveLogedUserid(findUser._id));
-        localStorage.setItem("logeduser", JSON.stringify(findUser));
+        // localStorage.setItem("logeduser", JSON.stringify(findUser));
         router.push("/");
       }
     },
